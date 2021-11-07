@@ -1,0 +1,25 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<ArrayList<Integer>> anagrams(final List<String> A) {
+        
+        HashMap<String, ArrayList<Integer>> map = new HashMap<>();
+       
+       int i =1;
+        for(String s : A)
+        {
+            
+            char arr[] = s.toCharArray();
+            Arrays.sort(arr);
+            String sorted = new String(arr);
+            
+            if(!map.containsKey(sorted))
+            {
+                map.put(sorted, new ArrayList<Integer>());
+            }
+            map.get(sorted).add(i++);
+        }
+       
+       return new ArrayList<>(map.values());
+
+    }
+}

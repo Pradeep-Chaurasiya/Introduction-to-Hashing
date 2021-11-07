@@ -1,0 +1,32 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<Integer> twoSum(final List<Integer> A, int B) {
+        
+        HashSet<Integer> set = new HashSet<Integer>();
+        
+        int idx1 = -1;
+        int idx2 = -1;
+        
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int i=0; i<A.size(); i++)
+        {
+            if(set.contains(B-A.get(i)))
+            {
+                idx2 = i+1;
+                idx1 = A.indexOf(B-A.get(i))+1;
+                list.add(idx1);
+                list.add(idx2);
+                return list;
+                
+            }
+            else
+            {
+                set.add(A.get(i));
+            }
+            
+        }
+        return list;
+        
+       
+    }
+}

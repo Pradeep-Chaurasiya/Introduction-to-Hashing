@@ -1,0 +1,47 @@
+public class Solution {
+    public ArrayList<Integer> solve(ArrayList<Integer> A, ArrayList<Integer> B) {
+
+        HashMap<Integer, Integer> mapA = new HashMap<>();
+        
+        for(Integer i : A){
+            mapA.put(i, mapA.getOrDefault(i, 0)+1);
+        }
+        
+        int m = B.size();
+         ArrayList<Integer> list = new ArrayList<>();
+        
+        for(int i=0; i<m; i++){
+            if(mapA.containsKey(B.get(i)) && mapA.get(B.get(i)) !=0){
+                int temp = mapA.get(B.get(i));
+                list.add(B.get(i));
+                mapA.put(B.get(i), temp-1);
+            }
+        }
+        return list;
+        
+    //     int n = A.size();
+    //     int m = B.size();
+        
+    //     ArrayList<Integer> list = new ArrayList<>();
+    //     HashMap<Integer, Integer> mapA = new HashMap<>();
+    //     HashMap<Integer, Integer> mapB = new HashMap<>();
+        
+    //   for(int i=0; i<n; i++){
+    //       mapA.put(A.get(i), mapA.getOrDefault(A.get(i), 0)+1);
+    //   }
+    //   for(int i=0; i<m; i++){
+    //       mapB.put(B.get(i), mapB.getOrDefault(B.get(i), 0)+1);
+    //   }
+       
+    //   for(Integer i : mapA.keySet()){
+    //       int count = 0;
+    //       if(mapB.containsKey(i)){
+    //             count = Math.min(mapA.get(i), mapB.get(i));
+    //             for(int j=0; j<count; j++){
+    //                 list.add(i);
+    //             }
+    //         }
+        // }
+        // return list;
+    }
+}

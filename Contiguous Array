@@ -1,0 +1,31 @@
+public class Solution {
+    public int solve(int[] A) {
+        
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        map.put(0, -1);
+        int temp = 0;
+        int glob = 0;
+        
+        
+        for(int i=0; i<A.length; i++)
+        {
+            
+         temp += (A[i]==1)?1:-1;
+            
+            
+            if(!map.containsKey(temp))
+            {
+                map.put(temp, i);
+            }
+            else
+            {
+              if(i-map.get(temp)>glob)
+              {
+                  glob = i - map.get(temp);
+              }
+            }
+        }
+        
+        return glob;
+    }
+}

@@ -1,0 +1,30 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int isValidSudoku(final String[] A) {
+
+        int n = A.length;
+        HashSet<String> set = new HashSet<>();
+
+        for(int i=0; i<n; i++){
+            String s = A[i];
+            int m = s.length();
+
+            for(int j=0; j<m; j++){
+                char cell = s.charAt(j);
+                int num = cell-'0';
+                if(num>=1 && num<=9){
+                    String row  = "row"+i+cell;
+                    String col  = "col"+j+cell;
+                    String box = "board"+(i/3)*3+j/3+cell;
+                    if(!set.contains(row)) set.add(row);
+                    else return 0;
+                    if(!set.contains(col)) set.add(col);
+                    else return 0;
+                    if(!set.contains(box)) set.add(box);
+                    else return 0;
+                }     
+            }
+        }
+        return 1;
+    }
+}
